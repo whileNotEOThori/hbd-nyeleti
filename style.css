@@ -1,0 +1,201 @@
+:root {
+  --bg: #fff8fc;
+  --card: #eecfff;
+  --card-alt: #f3d8ff;
+  --text: #2c2233;
+  --muted: #5f4d69;
+  --pink: #e5a4c6;
+  --pink-deep: #c57aa3;
+  --lilac: #c9a0df;
+  --lilac-deep: #9f72bf;
+  --white: #ffffff;
+  --shadow: 0 10px 24px rgba(161, 110, 158, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 20% 15%, rgba(255, 221, 238, 0.5), transparent 28%), radial-gradient(circle at 85% 30%, rgba(222, 195, 250, 0.35), transparent 30%),
+    radial-gradient(circle at 30% 75%, rgba(255, 232, 244, 0.55), transparent 32%), var(--bg);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+.page {
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  padding: 2rem 0 4rem;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.hero::before,
+.hero::after {
+  content: '✿';
+  position: absolute;
+  top: 0.3rem;
+  font-size: 1.7rem;
+  color: rgba(197, 122, 163, 0.55);
+}
+
+.hero::before {
+  left: 15%;
+}
+
+.hero::after {
+  right: 15%;
+}
+
+.hero-kicker {
+  margin: 0;
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--pink-deep);
+}
+
+h1 {
+  margin: 0.25rem 0;
+  font-size: clamp(1.8rem, 4.2vw, 3.4rem);
+  letter-spacing: 0.03em;
+  color: #b379c9;
+}
+
+.hero-text {
+  margin: 0.25rem auto 0;
+  max-width: 520px;
+  color: var(--muted);
+}
+
+.wishlist {
+  display: grid;
+  gap: 1rem;
+}
+
+.wish-card {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 1rem;
+  align-items: center;
+  background: linear-gradient(135deg, var(--card), var(--card-alt));
+  border-radius: 30px;
+  padding: 0.9rem;
+  box-shadow: var(--shadow);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.wish-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(161, 110, 158, 0.28);
+}
+
+.wish-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 6px solid rgba(255, 255, 255, 0.55);
+}
+
+.wish-content h2 {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.2vw, 2rem);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.wish-content p {
+  margin: 0.35rem 0 0.7rem;
+  color: #3f304a;
+}
+
+.wish-actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #1f1425;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease,
+    background 0.25s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.btn:focus-visible {
+  outline: 3px solid rgba(102, 47, 126, 0.35);
+  outline-offset: 2px;
+}
+
+.btn-buy {
+  background: linear-gradient(145deg, #f4bdd6, #d98fb5);
+  box-shadow: 0 4px 10px rgba(169, 97, 142, 0.35);
+}
+
+.btn-toggle {
+  background: linear-gradient(145deg, #f4f0e6, #d8d2c3);
+  box-shadow: 0 4px 10px rgba(120, 112, 90, 0.25);
+}
+
+.btn-toggle.is-bought {
+  background: linear-gradient(145deg, #dbb8f2, #b184d6);
+  color: #1a1122;
+}
+
+@media (max-width: 900px) {
+  .wish-card {
+    grid-template-columns: 130px 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    width: min(96vw, 760px);
+    padding-top: 1.4rem;
+  }
+
+  .hero::before,
+  .hero::after {
+    display: none;
+  }
+
+  .wish-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    border-radius: 24px;
+  }
+
+  .wish-card img {
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .wish-actions {
+    justify-content: center;
+  }
+}
